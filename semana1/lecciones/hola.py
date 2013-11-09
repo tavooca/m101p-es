@@ -10,10 +10,9 @@ def index():
 	connection = pymongo.MongoClient('localhost', 27017)
 
     # adjuntamos la base de datos test 
-    db = connection.test
+	db = connection.test
 
-
-    # obtener el identificador para la recolección de nombres 
+	# obtener el identificador para la recolección de nombres 
     name = db.names
 
     # encontrar un solo documento
