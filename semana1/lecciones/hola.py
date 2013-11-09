@@ -6,8 +6,8 @@ import pymongo
 @bottle.route('/')
 def index():
     
-	# coneccion de mongoDB
-	connection = pymongo.MongoClient('localhost', 27017)
+    # coneccion de mongoDB
+    connection = pymongo.MongoClient('localhost', 27017)
 
     # adjuntamos la base de datos test 
 	db = connection.test
