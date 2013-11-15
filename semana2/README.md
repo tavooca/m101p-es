@@ -21,17 +21,17 @@ tes - Semana 2
     - prevenir shell de enumerar cursor en la declaracion, anadiendo `null`: `var c = db.users.find(); null;`
 - `update`    
     - sustituir el documento
-    - `$set` fields
-    - `$unset` fields
+    - `$set` campo	
+    - `$unset` campo
     - `$inc{ field: increment_amount }`
     - arrays: 
         - `$set`: valor de actualizacion en un array: `$set: { "a.2": 5 }` sets the third value in the array `a` to 5
         - `$pop`: quitar del final de la matriz (1) o el comienzo de la matriz (-1): `$pop: { a: 1 }`
         - `$push`: anadir al final del array
-        - `$pushAll: { a: [1,2,3] }`: add all elements to array
-        - `$pull: { a: 5 }`: remove any item by value
-        - `$pullAll: { a: [1,2,3] }`: remove all items by value
-        - `$addToSet: { a : 5 }`: pushes item if it doesn't exist
+        - `$pushAll: { a: [1,2,3] }`: agregar todos los elementos al array
+        - `$pull: { a: 5 }`: eliminar cualquier elemento de valor
+        - `$pullAll: { a: [1,2,3] }`: eliminar todos los elementos de valor
+        - `$addToSet: { a : 5 }`: empujar articulo si no existe
 - upserts with `.update({},{},{ upsert: true })` 
 - multi-update with `.update({},{}.{ multi: true })` (without `{multi:true}` an `update` affects only a single document)
     - not atomic among documents
@@ -40,10 +40,10 @@ tes - Semana 2
 - `.drop()` removes all documents, indexes, etc. from a collection
     - vastly faster than `.remove()`, but drops indexes, etc., too (`.remove` does not)
 
-## Error Handling
-- the shell automatically checks for errors after every command
+## Control de errores
+- el shell comprueba automaticamente si hay errores despues de cada comando
 - `db.runCommand({ getLastError: 1 })`
-    - gives more details about the last command
+    - da mas detalles sobre el ultimo comando
         - tells you if an upsert was an update or insert
         - tells you how many docs were updated in a multi-update
         - tells you how many docs were removed with a `remove()` operation
